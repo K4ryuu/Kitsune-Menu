@@ -1,6 +1,7 @@
 # KitsuneMenu 2.0
 
-> [!WARNING] > **Experimental Project Notice**
+> [!WARNING]
+> **Experimental Project Notice**
 >
 > This was an experimental project created for learning and exploration purposes. Developers are free to use this code in their own projects or extract useful components from it. However, I do not plan to actively develop or maintain this project further.
 
