@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<DebugSymbols>False</DebugSymbols>
+		<DebugType>None</DebugType>
+		<GenerateDependencyFile>false</GenerateDependencyFile>
+		<PublishDir>./bin/Kitsune-Menu/shared/Kitsune-Menu/</PublishDir>
+	</PropertyGroup>
+	<PropertyGroup>
+		<AssemblyName>Kitsune-Menu</AssemblyName>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="CounterStrikeSharp.API" Version="*">
+		<PrivateAssets>none</PrivateAssets>
+		<ExcludeAssets>runtime</ExcludeAssets>
+		<IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<Target Name="CopyFiles" AfterTargets="Build">
+		<ItemGroup>
+			<FilesToCopy Include="$(ProjectDir)**\*.*" Exclude="$(ProjectDir)bin\**;$(ProjectDir)obj\**;$(OutputPath)bin\**;$(OutputPath)obj\**" />
+		</ItemGroup>
+		<Copy SourceFiles="@(FilesToCopy)" DestinationFolder="./bin/Kitsune-Menu/source/Kitsune-Menu/%(RecursiveDir)" />
+	</Target>
+</Project>
